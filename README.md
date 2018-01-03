@@ -1,2 +1,5 @@
 # IntentHQ-Interview
-Python/nose2 practice ahead of interview
+Python/problem solving practice ahead of interview.
+
+Each directory represents a programming challenge from [Cracking the Coding Interview](https://www.amazon.co.uk/dp/0984782850/), [Kattis](https://open.kattis.com/) or some part of the internet.
+
