@@ -2,6 +2,12 @@ import unittest
 import keytocrypto
 
 class TestKeyToCrypto(unittest.TestCase):
+    def testNoChange(self):
+        self.assertEqual(
+            keytocrypto.encrypt("B", "A"),
+            "B"
+        )
+
     def testSingleLetter(self):
         self.assertEqual(
             keytocrypto.encrypt("B", "C"),
