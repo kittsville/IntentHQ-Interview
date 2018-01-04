@@ -3,17 +3,13 @@ import keytocrypto
 
 class TestKeyToCrypto(unittest.TestCase):
     def testSingleLetter(self):
-        ciphertext = keytocrypto.encrypt("B", "C")
-
         self.assertEqual(
-            ciphertext,
+            keytocrypto.encrypt("B", "C"),
             "D"
         )
 
     def testMultipleLetters(self):
-        ciphertext = keytocrypto.encrypt("AB", "EE")
-
         self.assertEqual(
-            ciphertext,
+            keytocrypto.encrypt("AB", "EE"),
             "EF"
         )
