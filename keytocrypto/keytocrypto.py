@@ -1,5 +1,10 @@
 def encryptLetter((letter, cipherLetter)):
-    return chr(ord(letter) + ord(cipherLetter) - 65)
+    encryptedLetter = ord(letter) + ord(cipherLetter) - 65
+
+    if encryptedLetter > 90:
+        encryptedLetter -= 26
+
+    return chr(encryptedLetter)
 
 def encrypt(text, secret):
     ciphertext = (secret + text)[:len(text)]

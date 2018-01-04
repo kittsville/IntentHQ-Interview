@@ -25,3 +25,9 @@ class TestKeyToCrypto(unittest.TestCase):
             keytocrypto.encrypt("D", "BC"),
             "E"
         )
+
+    def testLetterWrapping(self):
+        self.assertEqual(
+            keytocrypto.encrypt("Y", "E"),
+            "C"
+        )
