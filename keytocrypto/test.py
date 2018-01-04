@@ -13,3 +13,9 @@ class TestKeyToCrypto(unittest.TestCase):
             keytocrypto.encrypt("AB", "EE"),
             "EF"
         )
+
+    def testShorterCipherLength(self):
+        self.assertEqual(
+            keytocrypto.encrypt("AB", "C"),
+            "CB"
+        )
