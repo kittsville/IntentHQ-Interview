@@ -50,3 +50,9 @@ class TestKeyToCryptoDecryption(unittest.TestCase):
             keytocrypto.decrypt("D", "B"),
             "C"
         )
+
+    def testMultipleLetters(self):
+        self.assertEqual(
+            keytocrypto.decrypt("DE", "BC"),
+            "CC"
+        )

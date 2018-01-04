@@ -13,5 +13,10 @@ def encrypt(text, secret):
 
     return encryptedText
 
+def decryptLetter((letter, ciphertext)):
+    return chr(ord(letter) - ord(ciphertext) + 65)
+
 def decrypt(encryptedText, secret):
-    return chr(ord(encryptedText) - ord(secret) + 65)
+    text = ''.join(map(decryptLetter, zip(encryptedText, secret)))
+
+    return text
