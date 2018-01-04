@@ -1,7 +1,7 @@
 import unittest
 import keytocrypto
 
-class TestKeyToCrypto(unittest.TestCase):
+class TestKeyToCryptoEncryption(unittest.TestCase):
     def testNoChange(self):
         self.assertEqual(
             keytocrypto.encrypt("B", "A"),
@@ -35,5 +35,18 @@ class TestKeyToCrypto(unittest.TestCase):
     def testLetterWrapping(self):
         self.assertEqual(
             keytocrypto.encrypt("Y", "E"),
+            "C"
+        )
+
+class TestKeyToCryptoDecryption(unittest.TestCase):
+    def testNoChange(self):
+        self.assertEqual(
+            keytocrypto.decrypt("B", "A"),
+            "B"
+        )
+
+    def testSingleLetter(self):
+        self.assertEqual(
+            keytocrypto.decrypt("D", "B"),
             "C"
         )
