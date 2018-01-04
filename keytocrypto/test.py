@@ -19,3 +19,9 @@ class TestKeyToCrypto(unittest.TestCase):
             keytocrypto.encrypt("AB", "C"),
             "CB"
         )
+
+    def testLongerCipherLength(self):
+        self.assertEqual(
+            keytocrypto.encrypt("D", "BC"),
+            "E"
+        )
