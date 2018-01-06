@@ -16,3 +16,12 @@ class TestBuildOrder(unittest.TestCase):
             buildorder.getBuildOrder(projects, dependencies),
             ["a", "b", "c"]
         )
+
+    def testProjectWithMultipleDependencies(self):
+        projects     = ["a", "b", "c"]
+        dependencies = [("a", "c"), ("b", "c")]
+
+        self.assertEqual(
+            buildorder.getBuildOrder(projects, dependencies),
+            ["a", "b", "c"]
+        )
