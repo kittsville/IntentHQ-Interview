@@ -2,13 +2,13 @@ import unittest
 import buildorder
 
 class TestBuildOrder(unittest.TestCase):
-    def testSingleProject(self):
+    def testNoDependencies(self):
         self.assertEqual(
             buildorder.getBuildOrder(["a"]),
             ["a"]
         )
 
-    def testProjectsWithSameDependency(self):
+    def testSameDependency(self):
         projects     = ["a", "b", "c"]
         dependencies = [("a", "b"), ("a", "c")]
 
@@ -17,7 +17,7 @@ class TestBuildOrder(unittest.TestCase):
             ["a", "b", "c"]
         )
 
-    def testProjectWithMultipleDependencies(self):
+    def testMultipleDependencies(self):
         projects     = ["a", "b", "c"]
         dependencies = [("a", "c"), ("b", "c")]
 
@@ -26,7 +26,7 @@ class TestBuildOrder(unittest.TestCase):
             ["a", "b", "c"]
         )
 
-    def testProjectWithUnresolvableDependencies(self):
+    def testUnresolvableDependencies(self):
         projects     = ["a", "b", "c", "d"]
         dependencies = [("a", "b"), ("b", "c"), ("c", "a")]
 
