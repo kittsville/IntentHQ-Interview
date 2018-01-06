@@ -38,6 +38,12 @@ class TestKeyToCryptoEncryption(unittest.TestCase):
             "C"
         )
 
+    def testLongText(self):
+        self.assertEqual(
+            keytocrypto.encrypt("SENDMOREMONKEYS", "ACM"),
+            "SGZVQBUQAFRWSLC"
+        )
+
 class TestKeyToCryptoDecryption(unittest.TestCase):
     def testNoChange(self):
         self.assertEqual(
