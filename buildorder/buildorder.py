@@ -1,5 +1,8 @@
 import sets
 
+class DependencyError(Exception):
+    pass
+
 def getBuildOrder(projects, dependencies = []):
     dependencyMap   = {}
     dependencyCount = {}
@@ -13,6 +16,9 @@ def getBuildOrder(projects, dependencies = []):
         dependencyMap[dependency].append(project)
         dependencyCount[project] += 1
         dependencyFreeProjects.discard(project)
+
+    if len(dependencyFreeProjects) == 0:
+        raise DependencyError("Unresolvable Project Dependencies")
 
     buildOrder = []
 
