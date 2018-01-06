@@ -19,4 +19,15 @@ def decryptLetter((letter, cipherLetter)):
 def decrypt(encryptedText, secret):
     text = ''.join(map(decryptLetter, zip(encryptedText, secret)))
 
+    if len(text) == len(encryptedText):
+        return text
+
+    offset = len(encryptedText) - len(text)
+
+    for i in xrange(offset, len(encryptedText)):
+        cipherPosition  = i - offset
+        cipherLetter    = text[cipherPosition]
+        encryptedLetter = encryptedText[i]
+        text           += decryptLetter((encryptedLetter, cipherLetter))
+
     return text
