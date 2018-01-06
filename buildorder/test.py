@@ -41,3 +41,12 @@ class TestBuildOrder(unittest.TestCase):
             buildorder.getBuildOrder(projects, dependencies),
             ["a", "b", "c"]
         )
+
+    def testOverlappingChainedDependencies(self):
+        projects     = ["a", "b", "c"]
+        dependencies = [("b", "a"), ("c", "b"), ("c", "a")]
+
+        self.assertEqual(
+            buildorder.getBuildOrder(projects, dependencies),
+            ["c", "b", "a"]
+        )
