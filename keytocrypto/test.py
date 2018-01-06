@@ -80,3 +80,10 @@ class TestKeyToCryptoDecryption(unittest.TestCase):
             keytocrypto.decrypt("C", "E"),
             "Y"
         )
+
+    def testLongText(self):
+        self.assertEqual(
+            keytocrypto.decrypt("SGZVQBUQAFRWSLC", "ACM"),
+            "SENDMOREMONKEYS"
+        )
+

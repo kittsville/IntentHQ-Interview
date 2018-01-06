@@ -27,7 +27,7 @@ def decrypt(encryptedText, secret):
     if len(text) == len(encryptedText):
         return text
 
-    offset = len(encryptedText) - len(text)
+    offset = len(secret)
 
     for i in xrange(offset, len(encryptedText)):
         cipherPosition  = i - offset
