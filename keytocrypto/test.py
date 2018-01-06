@@ -68,3 +68,9 @@ class TestKeyToCryptoDecryption(unittest.TestCase):
             keytocrypto.decrypt("E", "BC"),
             "D"
         )
+
+    def testTestWrapping(self):
+        self.assertEqual(
+            keytocrypto.decrypt("C", "E"),
+            "Y"
+        )
