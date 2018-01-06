@@ -25,14 +25,18 @@ def getBuildOrder(projects, dependencies = []):
 
     for project in dependencyFreeProjects:
         buildOrder.append(project)
-
-        for dependentProject in dependencyMap[project]:
-            dependencyCount[dependentProject] -= 1
-
-            if dependencyCount[dependentProject] == 0:
-                buildOrder.append(dependentProject)
+        resolveChildDependencies(project, dependencyMap, dependencyCount, buildOrder)
 
     if len(buildOrder) != len(projects):
         raise DependencyError()
 
     return buildOrder
+
+def resolveChildDependencies(project, dependencyMap, dependencyCount, buildOrder):
+    for dependentProject in dependencyMap[project]:
+        dependencyCount[dependentProject] -= 1
+
+        if dependencyCount[dependentProject] == 0:
+            buildOrder.append(dependentProject)
+
+            resolveChildDependencies(dependentProject, dependencyMap, dependencyCount, buildOrder)

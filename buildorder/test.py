@@ -32,3 +32,12 @@ class TestBuildOrder(unittest.TestCase):
 
         with self.assertRaises(buildorder.DependencyError):
             buildorder.getBuildOrder(projects, dependencies)
+
+    def testChainedDependencies(self):
+        projects     = ["a", "b", "c"]
+        dependencies = [("a", "b"), ("b", "c")]
+
+        self.assertEqual(
+            buildorder.getBuildOrder(projects, dependencies),
+            ["a", "b", "c"]
+        )
