@@ -27,7 +27,7 @@ class TestBuildOrder(unittest.TestCase):
         )
 
     def testProjectWithUnresolvableDependencies(self):
-        projects     = ["a", "b", "c"]
+        projects     = ["a", "b", "c", "d"]
         dependencies = [("a", "b"), ("b", "c"), ("c", "a")]
 
         with self.assertRaises(buildorder.DependencyError):
