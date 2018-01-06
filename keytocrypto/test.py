@@ -87,3 +87,27 @@ class TestKeyToCryptoDecryption(unittest.TestCase):
             "SENDMOREMONKEYS"
         )
 
+class TestKeyToCryptoIntegration(unittest.TestCase):
+    def testEncryptionThenDecryption(self):
+        originalText = "SENDMOREMONKEYS"
+        key          = "ACM"
+
+        encryptedText = keytocrypto.encrypt(originalText, key)
+        decryptedText = keytocrypto.decrypt(encryptedText, key)
+
+        self.assertEqual(
+            decryptedText,
+            originalText
+        )
+
+    def testDecryptionThenEncryption(self):
+        originalEncryptedText = "SGZVQBUQAFRWSLC"
+        key                   = "ACM"
+
+        decryptedText = keytocrypto.decrypt(originalEncryptedText, key)
+        encryptedText = keytocrypto.encrypt(decryptedText, key)
+
+        self.assertEqual(
+            encryptedText,
+            originalEncryptedText
+        )
