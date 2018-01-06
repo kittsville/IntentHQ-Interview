@@ -8,7 +8,7 @@ class TestBuildOrder(unittest.TestCase):
             ["a"]
         )
 
-    def testProjectWithDependencies(self):
+    def testProjectsWithSameDependency(self):
         projects     = ["a", "b", "c"]
         dependencies = [("a", "b"), ("a", "c")]
 
