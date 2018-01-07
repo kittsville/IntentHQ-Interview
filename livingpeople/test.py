@@ -10,6 +10,6 @@ class TestLivingPeople(unittest.TestCase):
 
     def testTwoPeople(self):
         self.assertEqual(
-            livingpeople.getMostAliveDate([(1998, 2065), (1994, 2054)]),
+            livingpeople.getMostAliveDate([(1998, 2065), (1994, 1997)]),
             1994
         )
