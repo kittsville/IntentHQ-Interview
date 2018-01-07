@@ -1,0 +1,2 @@
+def getPondSizes(waterSquares):
+    return []
