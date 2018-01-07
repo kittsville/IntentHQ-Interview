@@ -28,7 +28,7 @@ def sortDates(firstDate, secondDate):
     else:
         return firstDate.year - secondDate.year
 
-def getMostAliveDate(register):
+def getMostAliveYear(register):
     events = []
 
     for dates in register:
@@ -37,7 +37,7 @@ def getMostAliveDate(register):
 
     events.sort(cmp = sortDates)
 
-    mostAliveDate = 1900
+    mostAliveYear = 1900
     mostAlive     = 0
     currentAlive  = 0
 
@@ -47,8 +47,8 @@ def getMostAliveDate(register):
 
             if currentAlive > mostAlive:
                 mostAlive     = currentAlive
-                mostAliveDate = lifeEvent.year
+                mostAliveYear = lifeEvent.year
         else:
             currentAlive -= 1
 
-    return mostAliveDate
+    return mostAliveYear
