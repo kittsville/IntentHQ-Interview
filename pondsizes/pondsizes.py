@@ -1,2 +1,7 @@
 def getPondSizes(waterSquares):
-    return []
+    ponds = []
+
+    for water in waterSquares:
+        ponds.append(1)
+
+    return ponds
