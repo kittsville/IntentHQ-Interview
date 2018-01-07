@@ -11,6 +11,23 @@ class Birth(Event):
 class Death(Event):
     pass
 
+def sortDates(firstDate, secondDate):
+    """
+        Orders births before deaths in the same year
+    """
+    if firstDate.year == secondDate.year:
+        firstIsBirth  = isinstance(firstDate, Birth)
+        secondIsBirth = isinstance(secondDate, Birth)
+
+        if firstIsBirth and secondIsBirth:
+            return 0
+        elif firstIsBirth:
+            return -1
+        else:
+            return 1
+    else:
+        return firstDate.year - secondDate.year
+
 def getMostAliveDate(register):
     events = []
 
@@ -18,8 +35,8 @@ def getMostAliveDate(register):
         events.append(Birth(dates[0]))
         events.append(Death(dates[1]))
 
-    events.sort(key = lambda date: date.year)
-    
+    events.sort(cmp = sortDates)
+
     mostAliveDate = 1900
     mostAlive     = 0
     currentAlive  = 0

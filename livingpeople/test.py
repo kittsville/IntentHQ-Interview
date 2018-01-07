@@ -19,3 +19,9 @@ class TestLivingPeople(unittest.TestCase):
             livingpeople.getMostAliveDate([(1994, 2054), (1965, 2034)]),
             1994
         )
+
+    def testBirthDeathSameYear(self):
+        self.assertEqual(
+            livingpeople.getMostAliveDate([(1965, 1994), (1994, 2054)]),
+            1994
+        )
