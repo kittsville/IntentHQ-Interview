@@ -65,3 +65,19 @@ class TestPondSizes(unittest.TestCase):
             pondsizes.getPondSizes(waterSquares),
             [3, 2, 2]
         )
+
+    def testAllAdjacencyTypes(self):
+        waterSquares = [
+            (0, 0),
+            (3, 0),
+            (0, 1),
+            (2, 1),
+            (2, 2),
+            (0, 3),
+            (2, 3)
+        ]
+
+        self.assertItemsEqual(
+            pondsizes.getPondSizes(waterSquares),
+            [2, 4, 1]
+        )
