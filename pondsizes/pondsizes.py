@@ -18,7 +18,11 @@ def countAdjacentWater(position, unexploredWater):
         (xPos + 1, yPos),
         (xPos - 1, yPos),
         (xPos, yPos + 1),
-        (xPos, yPos - 1)
+        (xPos, yPos - 1),
+        (xPos - 1, yPos - 1),
+        (xPos + 1, yPos - 1),
+        (xPos - 1, yPos + 1),
+        (xPos + 1, yPos + 1)
     ]
 
     for square in adjacentSquares:

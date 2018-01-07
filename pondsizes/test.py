@@ -43,3 +43,25 @@ class TestPondSizes(unittest.TestCase):
             pondsizes.getPondSizes([(0, 0), (0, 1), (3, 2), (3, 3), (3, 1)]),
             [3, 2]
         )
+
+    def testDiagonallyAdjacentWaterPond(self):
+        self.assertItemsEqual(
+            pondsizes.getPondSizes([(0, 0), (1, 1), (0, 2), (2, 2), (2, 0)]),
+            [5]
+        )
+
+    def testMultipleDiagonallyAdjacentWaterPonds(self):
+        waterSquares = [
+            (0, 0),
+            (1, 1),
+            (2, 0),
+            (4, 1),
+            (3, 2),
+            (1, 3),
+            (2, 4)
+        ]
+
+        self.assertItemsEqual(
+            pondsizes.getPondSizes(waterSquares),
+            [3, 2, 2]
+        )
