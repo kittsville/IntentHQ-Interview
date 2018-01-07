@@ -14,7 +14,12 @@ def countAdjacentWater(position, unexploredWater):
 
     waterCount = 1
 
-    adjacentSquares = [(xPos + 1, yPos), (xPos - 1, yPos)]
+    adjacentSquares = [
+        (xPos + 1, yPos),
+        (xPos - 1, yPos),
+        (xPos, yPos + 1),
+        (xPos, yPos - 1)
+    ]
 
     for square in adjacentSquares:
         if square in unexploredWater:
