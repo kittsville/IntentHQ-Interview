@@ -1,5 +1,5 @@
-def getMostAliveDate(dates):
-    births = map(lambda life: life[0], dates)
+def getMostAliveDate(register):
+    births = map(lambda dates: dates[0], register)
 
     births.sort()
 
